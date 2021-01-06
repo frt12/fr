@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="btn btn-default">Ass Hole</div>
-                    You are logged in  wefrwe!
+                    
+                    You are logged in!
                 </div>
             </div>
         </div>

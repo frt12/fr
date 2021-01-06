@@ -68,7 +68,7 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    <div class="btn btn-default">Ass Hole</div>
+                    
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
