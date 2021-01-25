@@ -16,10 +16,11 @@
               </div>
 
                 <div class="card-body">
-                <form action="{{ route('questions.store') }}" method="POST">
+                <form action="{{ route('questions.store') }}" method="post">
+                  @csrf
                   <div class="form-group">
                     <label for="question-title">Question Title</label>
-                    <input type="text" name="tilte" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
+                  <input type="text" name="title" value="{{ old('title') }}" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
                     @if ($errors->has('title'))
                       <div class="invalid-feedback">
                       <strong>{{ $errors->first('title')}}</strong>
@@ -30,7 +31,7 @@
 
                   <div class="form-group">
                     <label for="question-body">Explaine you question</label>
-                    <textarea name="body" id="question-body" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="10"></textarea>
+                    <textarea name="body" id="question-body" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="10">{{ old('body') }}</textarea>
                     @if ($errors->has('body'))
                       <div class="invalid-feedback">
                       <strong>{{ $errors->first('body')}}</strong>
