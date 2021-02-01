@@ -15,12 +15,10 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        
+
         $questions = Question::with("user")->latest()->paginate(5);
 
-         return view('questions.index', compact('questions'));
-
-        
+        return view('questions.index', compact('questions'));
     }
 
     /**
@@ -55,7 +53,10 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        $question->increment('views');
+        //$question->views = $question->views + 1;
+        //$question->save();
+        return view('questions.show', compact('question'));
     }
 
     /**
@@ -93,6 +94,6 @@ class QuestionsController extends Controller
     {
         $question->delete();
 
-        return redirect('/questions')->with('success' , "Your question has been deleted.");
+        return redirect('/questions')->with('success', "Your question has been deleted.");
     }
 }
